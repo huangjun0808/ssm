@@ -45,7 +45,7 @@ public class UserController extends BaseController {
     @RequestMapping({"add"})
     public JSONBean insert(HttpServletRequest request, HttpServletResponse response, Model model){
         User user = new User();
-        user.setName1("huangjun");
+        user.setName("huangjun");
         user.setAge(20);
         userService.insert2User(user);
         return success();
