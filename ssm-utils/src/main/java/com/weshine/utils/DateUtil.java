@@ -3,6 +3,7 @@ package com.weshine.utils;
 /**
  * Title: 时间和日期的工具类
  */
+import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,9 +14,9 @@ import java.util.GregorianCalendar;
 public class DateUtil {
     //~ Static fields/initializers =============================================
 
-    private static String datePattern = "MM/dd/yyyy";
+    private static String datePattern = "yyyy-MM-dd";
 
-    private static String timePattern = datePattern + " HH:MM a";
+    private static String timePattern = datePattern + " HH:mm:ss";
 
     //~ Methods ================================================================
 
@@ -448,6 +449,11 @@ public class DateUtil {
         Calendar cld = Calendar.getInstance();
         DateFormat df = new SimpleDateFormat(format_string);
         return df.format(cld.getTime());
+    }
+
+    public static Timestamp getTimeStamp(){
+        String dateStr = date2Str(new Date());
+        return Timestamp.valueOf(dateStr);
     }
 
     public static void main(String[] args) {

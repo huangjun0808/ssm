@@ -7,10 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Map;
 
 @Service("userService")
 @Transactional
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl extends BaseServiceImpl<User, Integer> implements UserService {
 
     @Autowired
     private UserDao userDao;
@@ -21,7 +22,10 @@ public class UserServiceImpl implements UserService {
 
     public void insert2User(User user) {
         userDao.insertUser1(user);
-        user.setAge(user.getAge()+1);
-        userDao.insertUser2(user);
+//        userDao.insertUser2(user);
+    }
+
+    public Map getBy1(String field, String value) {
+        return userDao.getBy1(field,value);
     }
 }

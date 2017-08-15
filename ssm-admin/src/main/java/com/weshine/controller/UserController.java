@@ -1,5 +1,8 @@
 package com.weshine.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.TypeReference;
 import com.weshine.support.bean.JSONBean;
 import com.weshine.support.exception.CustomException;
 import com.weshine.model.User;
@@ -13,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 
 @Controller
 @RequestMapping({"user"})
@@ -26,6 +30,9 @@ public class UserController extends BaseController {
     public JSONBean getUser(HttpServletRequest request, HttpServletResponse response) throws Exception {
         String id = request.getParameter("id");
         User user = userService.getUser(Integer.valueOf(id));
+        User user1 = userService.get(Integer.valueOf(id));
+        User user3 = userService.getBy("nick_name","11");
+        Map user4 = userService.getBy1("nick_name","11");
         if(user == null){
             throw new CustomException("项目不存在");
         }
@@ -43,10 +50,11 @@ public class UserController extends BaseController {
 
     @ResponseBody
     @RequestMapping({"add"})
-    public JSONBean insert(HttpServletRequest request, HttpServletResponse response, Model model){
+    public JSONBean insert(HttpServletRequest request, HttpServletResponse response){
         User user = new User();
-        user.setName("huangjun");
-        user.setAge(20);
+        user.setEnabled(false);
+        user.setMobile("18651039625");
+        user.setSex(2);
         userService.insert2User(user);
         return success();
     }
