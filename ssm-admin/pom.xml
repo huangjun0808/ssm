@@ -6,11 +6,19 @@
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
+
     <artifactId>ssm-admin</artifactId>
     <packaging>war</packaging>
+
     <name>ssm-admin Maven Webapp</name>
     <url>http://maven.apache.org</url>
+
     <dependencies>
+        <dependency>
+            <groupId>com.weshine</groupId>
+            <artifactId>ssm-support</artifactId>
+            <version>${project.version}</version>
+        </dependency>
         <dependency>
             <groupId>com.weshine</groupId>
             <artifactId>ssm-model</artifactId>
@@ -18,7 +26,7 @@
         </dependency>
         <dependency>
             <groupId>com.weshine</groupId>
-            <artifactId>ssm-service</artifactId>
+            <artifactId>ssm-core</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
@@ -26,6 +34,7 @@
             <artifactId>ssm-utils</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.mortbay.jetty/jetty -->
     </dependencies>
     <build>
         <finalName>ssm-admin</finalName>

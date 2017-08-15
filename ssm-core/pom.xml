@@ -7,10 +7,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>ssm-utils</artifactId>
+    <artifactId>ssm-core</artifactId>
     <packaging>jar</packaging>
 
-    <name>ssm-utils</name>
+    <name>ssm-core</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -18,11 +18,20 @@
     </properties>
 
     <dependencies>
-        <!-- Apache httpclient -->
         <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>4.5</version>
+            <groupId>com.weshine</groupId>
+            <artifactId>ssm-model</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.weshine</groupId>
+            <artifactId>ssm-dao</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.weshine</groupId>
+            <artifactId>ssm-utils</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 </project>

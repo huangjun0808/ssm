@@ -1,7 +1,7 @@
 package com.weshine.controller;
 
-import com.weshine.common.JSONBean;
-import com.weshine.exception.CustomException;
+import com.weshine.support.bean.JSONBean;
+import com.weshine.support.exception.CustomException;
 import com.weshine.model.User;
 import com.weshine.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

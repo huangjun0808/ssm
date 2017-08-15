@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.weshine.dao.UserDao">
+    <select id="getUser" parameterType="int" resultType="user" >
+        SELECT * FROM USER WHERE id=#{id}
+    </select>
+
+    <insert id="insertUser1" parameterType="com.weshine.model.User">
+        INSERT INTO user(name,age) VALUES (#{name},#{age})
+    </insert>
+    <insert id="insertUser2" parameterType="com.weshine.model.User">
+        INSERT INTO user(name1,age) VALUES (#{name},#{age})
+    </insert>
+
+</mapper>
