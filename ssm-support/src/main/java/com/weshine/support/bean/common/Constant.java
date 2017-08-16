@@ -1,4 +1,4 @@
-package com.weshine.support.bean;
+package com.weshine.support.bean.common;
 
 /**
  * 常量类

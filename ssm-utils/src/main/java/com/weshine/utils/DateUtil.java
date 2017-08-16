@@ -452,7 +452,7 @@ public class DateUtil {
     }
 
     public static Timestamp getTimeStamp(){
-        String dateStr = date2Str(new Date());
+        String dateStr = date2Str("yyyy-MM-dd HH:mm:ss",new Date());
         return Timestamp.valueOf(dateStr);
     }
 

@@ -1,6 +1,7 @@
 package com.weshine.service.impl;
 
 import com.weshine.dao.BaseDao;
+import com.weshine.model.User;
 import com.weshine.service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -23,4 +24,21 @@ public class BaseServiceImpl<T, PK extends Serializable> implements BaseService<
     public T getBy(String field, String value) {
         return baseDao.getBy(field,value);
     }
+
+    @Override
+    public void insert(T entity) {
+        baseDao.insert(entity);
+    }
+
+    @Override
+    public void update(T entity) {
+        baseDao.update(entity);
+    }
+
+    @Override
+    public void delete(PK id) {
+        baseDao.remove(id);
+    }
+
+
 }

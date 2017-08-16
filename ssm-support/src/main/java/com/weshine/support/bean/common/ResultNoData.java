@@ -1,21 +1,21 @@
-package com.weshine.support.bean;
-
+package com.weshine.support.bean.common;
 
 import com.alibaba.fastjson.JSON;
 
-/**
- * json对象基类
- */
-public abstract class JSONBean {
+import java.io.Serializable;
+
+public class ResultNoData implements ResultBean, Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private Integer status;
 
     private String message;
 
-    public JSONBean() {
+    public ResultNoData() {
     }
 
-    public JSONBean(Integer status, String message) {
+    public ResultNoData(Integer status, String message) {
         this.status = status;
         this.message = message;
     }
@@ -36,11 +36,8 @@ public abstract class JSONBean {
         this.message = message;
     }
 
-    /**
-     * json对象转成json字符串
-     * @return
-     */
-    public String toJsonString(){
+    @Override
+    public String toJsonString() {
         return JSON.toJSONString(this);
     }
 }

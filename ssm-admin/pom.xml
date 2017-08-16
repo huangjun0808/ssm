@@ -26,7 +26,7 @@
         </dependency>
         <dependency>
             <groupId>com.weshine</groupId>
-            <artifactId>ssm-core</artifactId>
+            <artifactId>ssm-service</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

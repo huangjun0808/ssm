@@ -1,31 +1,45 @@
 package com.weshine.model;
 
-import com.weshine.model.utils.DateUtil;
-
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-public class User implements Serializable {
+/**
+ * 用户模型类
+ */
+public class User extends BaseObject implements Serializable{
 
     private static final long serialVersionUID = 1L;
-
+    //用户主键ID
     private Integer id;
-
+    //添加时间
     private Timestamp addTime;
-
+    //修改时间
     private Timestamp updateTime;
-
+    //昵称
     private String nickName;
-
+    //用户名
     private String userName;
-
+    //邮箱
     private String email;
-
+    //手机号
     private String mobile;
-
+    //性别 0未知 1男 2女
     private Integer sex;
-
+    //软删除
     private Boolean enabled;
+
+    @Override
+    public User initDefault() {
+        this.addTime = getTimestamp();
+        this.updateTime = getTimestamp();
+        this.nickName = "";
+        this.userName = "";
+        this.email = "";
+        this.mobile = "";
+        this.sex = 0;
+        this.enabled = Boolean.TRUE;
+        return this;
+    }
 
     public Integer getId() {
         return id;
@@ -131,5 +145,18 @@ public class User implements Serializable {
         return result;
     }
 
-
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", addTime=" + addTime +
+                ", updateTime=" + updateTime +
+                ", nickName='" + nickName + '\'' +
+                ", userName='" + userName + '\'' +
+                ", email='" + email + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", sex=" + sex +
+                ", enabled=" + enabled +
+                '}';
+    }
 }

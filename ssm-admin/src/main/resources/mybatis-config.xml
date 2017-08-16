@@ -12,5 +12,6 @@
     </settings>
     <typeAliases>
         <package name="com.weshine.model"/>
+        <package name="com.weshine.support.bean.query"/>
     </typeAliases>
 </configuration>

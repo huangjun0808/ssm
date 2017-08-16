@@ -8,7 +8,7 @@
   <modules>
     <module>ssm-model</module>
     <module>ssm-dao</module>
-    <module>ssm-core</module>
+    <module>ssm-service</module>
     <module>ssm-utils</module>
     <module>ssm-admin</module>
     <module>ssm-shop</module>
@@ -36,7 +36,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>4.11</version>
       <scope>test</scope>
     </dependency>
 
@@ -85,7 +85,6 @@
       <artifactId>spring-context-support</artifactId>
       <version>${spring.version}</version>
     </dependency>
-
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-test</artifactId>
@@ -205,7 +204,7 @@
     <dependency>
       <groupId>com.github.pagehelper</groupId>
       <artifactId>pagehelper</artifactId>
-      <version>4.2.0</version>
+      <version>4.1.1</version>
     </dependency>
     <dependency>
       <groupId>com.github.jsqlparser</groupId>
