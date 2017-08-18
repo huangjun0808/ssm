@@ -1,4 +1,4 @@
-package com.weshine.support.bean.query.common;
+package com.weshine.support.bean.query.sql;
 
 
 
@@ -11,7 +11,7 @@ public class Criteria {
 
     private String condition;
 
-    private Object value;
+    private String value;
 
     private Boolean and;
 
@@ -34,11 +34,11 @@ public class Criteria {
         this.condition = condition;
     }
 
-    public Object getValue() {
+    public String getValue() {
         return value;
     }
 
-    public void setValue(Object value) {
+    public void setValue(String value) {
         this.value = value;
     }
 
@@ -50,13 +50,15 @@ public class Criteria {
         this.and = and;
     }
 
+
+
     public Criteria(String propery, String condition, Boolean and) {
         this.propery = propery;
         this.condition = condition;
         this.and = and;
     }
 
-    public Criteria(String propery, String condition, Object value, Boolean and) {
+    public Criteria(String propery, String condition, String value, Boolean and) {
         this.propery = propery;
         this.condition = condition;
         this.value = value;
