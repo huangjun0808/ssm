@@ -1,7 +1,7 @@
 /**
  * 生成缩略图类
  */
-package com.weshine.utils;
+package com.weshine.support.utils;
 
 /**
  * @author advance

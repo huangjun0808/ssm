@@ -1,4 +1,4 @@
-package com.weshine.utils;
+package com.weshine.support.utils;
 
 /*
  * Static File routines.

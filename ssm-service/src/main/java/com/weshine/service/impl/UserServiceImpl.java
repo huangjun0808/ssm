@@ -6,7 +6,7 @@ import com.weshine.model.User;
 import com.weshine.service.UserService;
 import com.weshine.support.bean.common.Page;
 import com.weshine.support.bean.query.UserQuery;
-import com.weshine.utils.DateUtil;
+import com.weshine.support.utils.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

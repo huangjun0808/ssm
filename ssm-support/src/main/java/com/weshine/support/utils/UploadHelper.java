@@ -1,7 +1,7 @@
 /**
  * 上传文件类
  */
-package com.weshine.utils;
+package com.weshine.support.utils;
 
 /**
  * @author advance

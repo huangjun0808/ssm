@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.weshine.utils;
+package com.weshine.support.utils;
 
 import java.text.NumberFormat;
 import java.util.Locale;

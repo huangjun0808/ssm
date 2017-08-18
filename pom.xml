@@ -9,10 +9,10 @@
     <module>ssm-model</module>
     <module>ssm-dao</module>
     <module>ssm-service</module>
-    <module>ssm-utils</module>
     <module>ssm-admin</module>
     <module>ssm-shop</module>
-      <module>ssm-support</module>
+    <module>ssm-support</module>
+    <module>ssm-server</module>
   </modules>
   <packaging>pom</packaging>
 
@@ -29,6 +29,8 @@
     <!-- log4j日志文件管理包版本 -->
     <slf4j.version>1.7.7</slf4j.version>
     <log4j.version>1.2.17</log4j.version>
+    <!--junit测试包版本-->
+    <junit.version>4.11</junit.version>
   </properties>
 
   <dependencies>
@@ -36,7 +38,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.11</version>
+      <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
 
@@ -126,13 +128,6 @@
       <version>1.2.2</version>
     </dependency>
 
-    <!-- JSTL标签类 -->
-    <dependency>
-      <groupId>jstl</groupId>
-      <artifactId>jstl</artifactId>
-      <version>1.2</version>
-    </dependency>
-
     <!-- 日志文件管理包 -->
     <!-- log start -->
     <dependency>
@@ -159,30 +154,6 @@
       <version>1.1.41</version>
     </dependency>
     <!-- log end -->
-
-    <!-- 映入JSON -->
-    <dependency>
-      <groupId>org.codehaus.jackson</groupId>
-      <artifactId>jackson-mapper-asl</artifactId>
-      <version>1.9.13</version>
-    </dependency>
-
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-core</artifactId>
-      <version>2.7.0</version>
-    </dependency>
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
-      <version>2.7.0</version>
-    </dependency>
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-annotations</artifactId>
-      <version>2.7.0</version>
-    </dependency>
-
     <!-- 上传组件包 -->
     <dependency>
       <groupId>commons-fileupload</groupId>
@@ -199,7 +170,6 @@
       <artifactId>commons-codec</artifactId>
       <version>1.9</version>
     </dependency>
-
     <!-- 分页插件包 -->
     <dependency>
       <groupId>com.github.pagehelper</groupId>

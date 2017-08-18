@@ -1,4 +1,4 @@
-package com.weshine.utils;
+package com.weshine.support.utils;
 
 /**
  * 此类中收集Java编程中WEB开发常用到的一些工具。

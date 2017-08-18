@@ -1,4 +1,4 @@
-package com.weshine.utils;
+package com.weshine.support.utils;
 
 import java.io.BufferedReader;
 import java.io.IOException;

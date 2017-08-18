@@ -26,11 +26,6 @@
             <artifactId>ssm-service</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.weshine</groupId>
-            <artifactId>ssm-utils</artifactId>
-            <version>${project.version}</version>
-        </dependency>
     </dependencies>
     <build>
         <finalName>ssm-shop</finalName>
