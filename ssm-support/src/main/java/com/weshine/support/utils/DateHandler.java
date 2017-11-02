@@ -9,6 +9,7 @@ package com.weshine.support.utils;
 import java.util.*;
 import java.text.*;
 
+@SuppressWarnings("ALL")
 public class DateHandler {
 
     public DateHandler() {

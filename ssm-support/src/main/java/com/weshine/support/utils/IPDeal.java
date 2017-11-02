@@ -3,6 +3,7 @@ package com.weshine.support.utils;
 /**
  * IP处理类
  */
+@SuppressWarnings("ALL")
 public class IPDeal {
 	/**
 	 * 把ip地址格式化为：000.000.000.000

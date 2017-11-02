@@ -1,5 +1,6 @@
 package com.weshine.support.utils;
 
+@SuppressWarnings("ALL")
 public class CConst {
 
    /**

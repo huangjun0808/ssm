@@ -24,6 +24,21 @@
             <artifactId>ssm-support</artifactId>
             <version>${project.version}</version>
         </dependency>
+
+        <!--JPA-->
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>persistence-api</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <!--通用mapper-->
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper</artifactId>
+            <!-- 建议使用最新版本,最新版本请从项目首页查找 -->
+            <version>3.4.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>

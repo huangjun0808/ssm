@@ -2,6 +2,7 @@ package com.weshine.support.utils;
 
 import java.security.MessageDigest;
 
+@SuppressWarnings("ALL")
 public class MD5Encrypt {
 
   public MD5Encrypt() {

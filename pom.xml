@@ -12,7 +12,6 @@
     <module>ssm-admin</module>
     <module>ssm-shop</module>
     <module>ssm-support</module>
-    <module>ssm-server</module>
   </modules>
   <packaging>pom</packaging>
 

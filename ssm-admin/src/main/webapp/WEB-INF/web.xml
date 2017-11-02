@@ -37,7 +37,10 @@
     <!-- 添加对SpringMVC的支持 -->
     <servlet>
         <servlet-name>SpringMVC</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <!--<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>-->
+        <!--使用自定义的分发器-->
+        <servlet-class>com.weshine.admin.dispatcher.DefaultDispatcherServlet</servlet-class>
+
         <init-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>classpath:spring-mvc.xml</param-value>

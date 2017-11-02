@@ -10,7 +10,7 @@
     <artifactId>ssm-admin</artifactId>
     <packaging>war</packaging>
 
-    <name>ssm-admin Maven Webapp</name>
+    <name>ssm-admin Maven Web</name>
     <url>http://maven.apache.org</url>
 
     <dependencies>
@@ -58,9 +58,63 @@
             <artifactId>jackson-annotations</artifactId>
             <version>2.7.0</version>
         </dependency>
-
     </dependencies>
+
+    <profiles>
+        <profile>
+            <!--开发环境-->
+            <id>dev</id>
+            <properties>
+                <profiles.activation>dev</profiles.activation>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <!-- 测试环境 -->
+            <id>test</id>
+            <properties>
+                <profiles.activation>test</profiles.activation>
+            </properties>
+        </profile>
+        <profile>
+            <!-- 生产环境 -->
+            <id>prod</id>
+            <properties>
+                <profiles.activation>prod</profiles.activation>
+            </properties>
+        </profile>
+    </profiles>
+
     <build>
         <finalName>ssm-admin</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.1.1</version>
+                <configuration>
+                    <warName>ssm-admin-${profiles.activation}</warName>
+                    <webResources>
+                        <resource>
+                            <directory>src/main/resources/${profiles.activation}</directory>
+                            <targetPath>WEB-INF/classes</targetPath>
+                            <filtering>true</filtering>
+                        </resource>
+                    </webResources>
+                </configuration>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>*.properties</include>
+                    <include>*.xml</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
 </project>

@@ -10,6 +10,7 @@ package com.weshine.support.utils;
 //package md5java ;
 import java.io.* ;
 
+@SuppressWarnings("ALL")
 public class Md5 {
     private static final int BUFFER_SIZE = 1024 ;
 

@@ -4,6 +4,6 @@
     <title>Title</title>
 </head>
 <body>
-        user index${id}||${user.name}||${user.age}
+        user index${id}||${user.username}||${user.mobile}
 </body>
 </html>

@@ -10,8 +10,9 @@
         <!-- 打印查询语句 -->
         <setting name="logImpl" value="STDOUT_LOGGING" />
     </settings>
+    <!--别名定义-->
     <typeAliases>
         <package name="com.weshine.model"/>
-        <package name="com.weshine.support.bean.query"/>
+        <package name="com.weshine.model.query"/>
     </typeAliases>
 </configuration>
