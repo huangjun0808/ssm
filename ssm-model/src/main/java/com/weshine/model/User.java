@@ -25,32 +25,36 @@ public class User extends BaseModel {
      * 添加时间
      */
     @Column(name = "add_time")
-    private Timestamp addtime;
+    private Timestamp addTime;
     /**
      * 修改时间
      */
     @Column(name = "update_time")
-    private Timestamp updatetime;
+    private Timestamp updateTime;
     /**
-     * 昵称
+     * 角色
      */
-    private String nickname;
+    private String role;
     /**
      * 用户名
      */
     private String username;
     /**
-     * 邮箱
+     * 密码
      */
-    private String email;
+    private String password;
     /**
-     * 手机号
+     * 真实姓名
      */
-    private String mobile;
+    private String realname;
     /**
-     * 性别 0未知 1男 2女
+     * 备注
      */
-    private Integer sex;
+    private String remark;
+    /**
+     * 是否启用
+     */
+    private Integer enabled;
 
     public Integer getId() {
         return id;
@@ -60,28 +64,28 @@ public class User extends BaseModel {
         this.id = id;
     }
 
-    public Timestamp getAddtime() {
-        return addtime;
+    public Timestamp getAddTime() {
+        return addTime;
     }
 
-    public void setAddtime(Timestamp addtime) {
-        this.addtime = addtime;
+    public void setAddTime(Timestamp addTime) {
+        this.addTime = addTime;
     }
 
-    public Timestamp getUpdatetime() {
-        return updatetime;
+    public Timestamp getUpdateTime() {
+        return updateTime;
     }
 
-    public void setUpdatetime(Timestamp updatetime) {
-        this.updatetime = updatetime;
+    public void setUpdateTime(Timestamp updateTime) {
+        this.updateTime = updateTime;
     }
 
-    public String getNickname() {
-        return nickname;
+    public String getRole() {
+        return role;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public String getUsername() {
@@ -92,28 +96,36 @@ public class User extends BaseModel {
         this.username = username;
     }
 
-    public String getEmail() {
-        return email;
+    public String getPassword() {
+        return password;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getMobile() {
-        return mobile;
+    public String getRealname() {
+        return realname;
     }
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
+    public void setRealname(String realname) {
+        this.realname = realname;
     }
 
-    public Integer getSex() {
-        return sex;
+    public String getRemark() {
+        return remark;
     }
 
-    public void setSex(Integer sex) {
-        this.sex = sex;
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    public Integer getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Integer enabled) {
+        this.enabled = enabled;
     }
 
     @Override
@@ -124,25 +136,27 @@ public class User extends BaseModel {
         User user = (User) o;
 
         if (id != null ? !id.equals(user.id) : user.id != null) return false;
-        if (addtime != null ? !addtime.equals(user.addtime) : user.addtime != null) return false;
-        if (updatetime != null ? !updatetime.equals(user.updatetime) : user.updatetime != null) return false;
-        if (nickname != null ? !nickname.equals(user.nickname) : user.nickname != null) return false;
+        if (addTime != null ? !addTime.equals(user.addTime) : user.addTime != null) return false;
+        if (updateTime != null ? !updateTime.equals(user.updateTime) : user.updateTime != null) return false;
+        if (role != null ? !role.equals(user.role) : user.role != null) return false;
         if (username != null ? !username.equals(user.username) : user.username != null) return false;
-        if (email != null ? !email.equals(user.email) : user.email != null) return false;
-        if (mobile != null ? !mobile.equals(user.mobile) : user.mobile != null) return false;
-        return sex != null ? sex.equals(user.sex) : user.sex == null;
+        if (password != null ? !password.equals(user.password) : user.password != null) return false;
+        if (realname != null ? !realname.equals(user.realname) : user.realname != null) return false;
+        if (remark != null ? !remark.equals(user.remark) : user.remark != null) return false;
+        return enabled != null ? enabled.equals(user.enabled) : user.enabled == null;
     }
 
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (addtime != null ? addtime.hashCode() : 0);
-        result = 31 * result + (updatetime != null ? updatetime.hashCode() : 0);
-        result = 31 * result + (nickname != null ? nickname.hashCode() : 0);
+        result = 31 * result + (addTime != null ? addTime.hashCode() : 0);
+        result = 31 * result + (updateTime != null ? updateTime.hashCode() : 0);
+        result = 31 * result + (role != null ? role.hashCode() : 0);
         result = 31 * result + (username != null ? username.hashCode() : 0);
-        result = 31 * result + (email != null ? email.hashCode() : 0);
-        result = 31 * result + (mobile != null ? mobile.hashCode() : 0);
-        result = 31 * result + (sex != null ? sex.hashCode() : 0);
+        result = 31 * result + (password != null ? password.hashCode() : 0);
+        result = 31 * result + (realname != null ? realname.hashCode() : 0);
+        result = 31 * result + (remark != null ? remark.hashCode() : 0);
+        result = 31 * result + (enabled != null ? enabled.hashCode() : 0);
         return result;
     }
 
@@ -150,13 +164,14 @@ public class User extends BaseModel {
     public String toString() {
         final StringBuffer sb = new StringBuffer("User{");
         sb.append("id=").append(id);
-        sb.append(", addtime=").append(addtime);
-        sb.append(", updatetime=").append(updatetime);
-        sb.append(", nickname='").append(nickname).append('\'');
+        sb.append(", addTime=").append(addTime);
+        sb.append(", updateTime=").append(updateTime);
+        sb.append(", role='").append(role).append('\'');
         sb.append(", username='").append(username).append('\'');
-        sb.append(", email='").append(email).append('\'');
-        sb.append(", mobile='").append(mobile).append('\'');
-        sb.append(", sex=").append(sex);
+        sb.append(", password='").append(password).append('\'');
+        sb.append(", realname='").append(realname).append('\'');
+        sb.append(", remark='").append(remark).append('\'');
+        sb.append(", enabled=").append(enabled);
         sb.append('}');
         return sb.toString();
     }

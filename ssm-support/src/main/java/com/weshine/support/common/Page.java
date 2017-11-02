@@ -89,4 +89,11 @@ public class Page implements Serializable {
         this.total = total;
     }
 
+    public List getList() {
+        return list;
+    }
+
+    public void setList(List list) {
+        this.list = list;
+    }
 }

@@ -1,7 +1,9 @@
 package com.weshine.admin.controller;
 
 import com.weshine.admin.common.Response;
+import com.weshine.model.Member;
 import com.weshine.model.User;
+import com.weshine.service.MemberService;
 import com.weshine.service.UserService;
 import com.weshine.support.common.Page;
 import com.weshine.support.utils.DateUtil;
@@ -24,45 +26,46 @@ public class UserController extends BaseController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private MemberService memberService;
+
     @ResponseBody
     @RequestMapping(value = "view",method = RequestMethod.GET)
     public Response getUser(HttpServletRequest request, HttpServletResponse response) throws Exception {
         String id = request.getParameter("id");
-        User user = userService.selectByPrimaryKey(Integer.valueOf(id));
-        List<User> users = userService.selectAll();
-        return success(user);
+        Member member = memberService.selectByPrimaryKey(Integer.valueOf(id));
+        return success(member);
     }
 
     @ResponseBody
-    @RequestMapping(value = "insert", method = RequestMethod.POST)
+    @RequestMapping(value = "insert", method = RequestMethod.GET)
     public Response insertUser(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        User user = new User();
-        user.setAddtime(DateUtil.getTimeStamp());
-        user.setUpdatetime(DateUtil.getTimeStamp());
-        user.setNickname("起风了");
-        user.setUsername("huangjun");
-        user.setMobile("18651039625");
-        user.setEmail("");
-        user.setSex(0);
-        userService.insertSelective(user);
-        return success(user.getId());
+        Member member = new Member();
+        member.setAddTime(DateUtil.getTimeStamp());
+        member.setUpdateTime(DateUtil.getTimeStamp());
+        member.setNickname("起风了");
+        member.setUsername("huangjun");
+        member.setMobile("18651039625");
+        member.setEmail("");
+        member.setSex(0);
+        memberService.insertSelective(member);
+        return success(member.getId());
     }
 
     @RequestMapping({"index"})
     public ModelAndView index(HttpServletRequest request, HttpServletResponse response){
-        User user = userService.selectByPrimaryKey(7);
+        Member member = memberService.selectByPrimaryKey(7);
         ModelAndView mv = new ModelAndView();
         mv.setViewName("user/index");
         mv.addObject("id",333);
-        mv.addObject("user",user);
-
+        mv.addObject("user",member);
         return mv;
     }
 
     @ResponseBody
     @RequestMapping({"list"})
     public Response list(HttpServletRequest request, HttpServletResponse response){
-        List<User> list = userService.getPage();
-        return success(new Page(list));
+        List<Member> list = memberService.selectAll();
+        return success(list);
     }
 }

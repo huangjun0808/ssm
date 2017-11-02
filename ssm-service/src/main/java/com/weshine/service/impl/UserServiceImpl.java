@@ -7,14 +7,18 @@ import com.weshine.model.User;
 import com.weshine.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 
 /**
+ * 类@
+ *
  * @author huangjun
+ * &date 2017/11/2
  */
 @Service("userService")
-@Transactional
+@Transactional(rollbackFor = Exception.class)
 public class UserServiceImpl extends BaseServiceImpl<User> implements UserService{
 
     @Autowired
