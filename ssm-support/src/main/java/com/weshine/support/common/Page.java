@@ -9,7 +9,7 @@ import java.util.List;
  * @author huangjun
  * &date 2017/11/2
  */
-public class Page<T> implements Serializable {
+public class Page implements Serializable {
 
     private static final long serialVersionUID = 1L;
     /**
@@ -35,11 +35,11 @@ public class Page<T> implements Serializable {
     /**
      * 结果集
      */
-    private List<T> list;
+    private List list;
 
-    public Page(List<T> list) {
+    public Page(List list) {
         if(list instanceof com.github.pagehelper.Page){
-            com.github.pagehelper.Page<T> page = (com.github.pagehelper.Page<T>) list;
+            com.github.pagehelper.Page page = (com.github.pagehelper.Page) list;
             this.total = page.getTotal();
             this.pages = page.getPages();
             this.pageNum = page.getPageNum();
@@ -89,11 +89,4 @@ public class Page<T> implements Serializable {
         this.total = total;
     }
 
-    public List<T> getList() {
-        return list;
-    }
-
-    public void setList(List<T> list) {
-        this.list = list;
-    }
 }

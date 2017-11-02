@@ -3,6 +3,7 @@ package com.weshine.admin.controller;
 import com.weshine.admin.common.Response;
 import com.weshine.model.User;
 import com.weshine.service.UserService;
+import com.weshine.support.common.Page;
 import com.weshine.support.utils.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -54,6 +55,7 @@ public class UserController extends BaseController {
         mv.setViewName("user/index");
         mv.addObject("id",333);
         mv.addObject("user",user);
+
         return mv;
     }
 
@@ -61,6 +63,6 @@ public class UserController extends BaseController {
     @RequestMapping({"list"})
     public Response list(HttpServletRequest request, HttpServletResponse response){
         List<User> list = userService.getPage();
-        return success(list);
+        return success(new Page(list));
     }
 }
