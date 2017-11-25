@@ -13,4 +13,7 @@ public interface UserService extends BaseService<User> {
 
     public Page<User> getPage();
 
+    String getName();
+
+    String getPassword();
 }

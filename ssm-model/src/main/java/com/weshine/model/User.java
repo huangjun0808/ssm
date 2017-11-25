@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.sql.Timestamp;
+import java.util.*;
 
 /**
  * 用户模型类
@@ -52,9 +53,25 @@ public class User extends BaseModel {
      */
     private String remark;
     /**
+     * 账号是否过期
+     */
+    @Column(name = "account_non_expired")
+    private Boolean accountNonExpired;
+    /**
+     * 账号是否锁定
+     */
+    @Column(name = "account_non_locked")
+    private Boolean accountNonLocked;
+    /**
+     * 凭证是否过期
+     */
+    @Column(name = "credentials_non_expired")
+    private Boolean credentialsNonExpired;
+
+    /**
      * 是否启用
      */
-    private Integer enabled;
+    private Boolean enabled;
 
     public Integer getId() {
         return id;
@@ -82,6 +99,12 @@ public class User extends BaseModel {
 
     public String getRole() {
         return role;
+    }
+
+    public Set<String> getSetRoles(){
+        Set<String> set = new HashSet<>();
+        Collections.addAll(set, role.split(","));
+        return set;
     }
 
     public void setRole(String role) {
@@ -120,13 +143,46 @@ public class User extends BaseModel {
         this.remark = remark;
     }
 
-    public Integer getEnabled() {
+    public Boolean getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(Integer enabled) {
+    public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
     }
+
+    public Boolean getAccountNonExpired() {
+        return accountNonExpired;
+    }
+
+    public void setAccountNonExpired(Boolean accountNonExpired) {
+        this.accountNonExpired = accountNonExpired;
+    }
+
+    public Boolean getAccountNonLocked() {
+        return accountNonLocked;
+    }
+
+    public void setAccountNonLocked(Boolean accountNonLocked) {
+        this.accountNonLocked = accountNonLocked;
+    }
+
+    public Boolean getCredentialsNonExpired() {
+        return credentialsNonExpired;
+    }
+
+    public void setCredentialsNonExpired(Boolean credentialsNonExpired) {
+        this.credentialsNonExpired = credentialsNonExpired;
+    }
+
+    public Set<String> getUserRoles(){
+        Set<String> roles = new TreeSet<>();
+        for (String role : this.getRole().split(",")) {
+            roles.add(role);
+        }
+        return roles;
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -143,6 +199,12 @@ public class User extends BaseModel {
         if (password != null ? !password.equals(user.password) : user.password != null) return false;
         if (realname != null ? !realname.equals(user.realname) : user.realname != null) return false;
         if (remark != null ? !remark.equals(user.remark) : user.remark != null) return false;
+        if (accountNonExpired != null ? !accountNonExpired.equals(user.accountNonExpired) : user.accountNonExpired != null)
+            return false;
+        if (accountNonLocked != null ? !accountNonLocked.equals(user.accountNonLocked) : user.accountNonLocked != null)
+            return false;
+        if (credentialsNonExpired != null ? !credentialsNonExpired.equals(user.credentialsNonExpired) : user.credentialsNonExpired != null)
+            return false;
         return enabled != null ? enabled.equals(user.enabled) : user.enabled == null;
     }
 
@@ -156,6 +218,9 @@ public class User extends BaseModel {
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (realname != null ? realname.hashCode() : 0);
         result = 31 * result + (remark != null ? remark.hashCode() : 0);
+        result = 31 * result + (accountNonExpired != null ? accountNonExpired.hashCode() : 0);
+        result = 31 * result + (accountNonLocked != null ? accountNonLocked.hashCode() : 0);
+        result = 31 * result + (credentialsNonExpired != null ? credentialsNonExpired.hashCode() : 0);
         result = 31 * result + (enabled != null ? enabled.hashCode() : 0);
         return result;
     }
@@ -171,6 +236,9 @@ public class User extends BaseModel {
         sb.append(", password='").append(password).append('\'');
         sb.append(", realname='").append(realname).append('\'');
         sb.append(", remark='").append(remark).append('\'');
+        sb.append(", accountNonExpired=").append(accountNonExpired);
+        sb.append(", accountNonLocked=").append(accountNonLocked);
+        sb.append(", credentialsNonExpired=").append(credentialsNonExpired);
         sb.append(", enabled=").append(enabled);
         sb.append('}');
         return sb.toString();

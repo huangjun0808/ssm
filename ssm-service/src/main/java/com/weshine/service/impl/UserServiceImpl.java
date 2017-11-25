@@ -8,7 +8,6 @@ import com.weshine.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 
 /**
@@ -17,7 +16,7 @@ import java.util.List;
  * @author huangjun
  * &date 2017/11/2
  */
-@Service("userService")
+@Service(value = "userService")
 @Transactional(rollbackFor = Exception.class)
 public class UserServiceImpl extends BaseServiceImpl<User> implements UserService{
 
@@ -29,5 +28,15 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
         PageHelper.startPage(1,5);
         List<User> list = userDao.selectAll();
         return (Page<User>) list;
+    }
+
+    @Override
+    public String getName() {
+        return "22";
+    }
+
+    @Override
+    public String getPassword() {
+        return "22";
     }
 }

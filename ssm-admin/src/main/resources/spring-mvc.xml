@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                         http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
                         http://www.springframework.org/schema/context
                         http://www.springframework.org/schema/context/spring-context-4.3.xsd
                         http://www.springframework.org/schema/mvc
-                        http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+                        http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
 
     <!-- 自动扫描 -->
-    <context:component-scan base-package="com.weshine" />
+    <context:component-scan base-package="com.weshine.controller" />
 
     <!-- 启动SpringMVC的注解功能-->
     <mvc:annotation-driven>
@@ -48,13 +48,13 @@
         <!-- 多个拦截器，顺序执行 -->
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
-            <bean class="com.weshine.admin.interceptor.LoginInterceptor"/>
+            <bean class="com.weshine.interceptor.LoginInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
 
     <!-- 全局异常处理器
     只要实现了HandlerExceptionResolver接口，这个类就是一个全局异常处理器-->
-    <bean class="com.weshine.admin.exception.CustomExceptionResolver"/>
+    <bean class="com.weshine.exception.CustomExceptionResolver"/>
 
     <!--配置文件上传，如果没有使用文件上传可以不用配置，当然如果不配，那么配置文件中也不必引入上传组件包 -->
     <bean id="multipartResolver"
@@ -65,14 +65,6 @@
         <property name="maxUploadSize" value="10485760000" />
         <!-- 内存中的最大值 -->
         <property name="maxInMemorySize" value="40960" />
-    </bean>
-    
-    <tx:annotation-driven/>
-    <!--事务处理必须抛出异常，Spring才会帮助事务回滚-->
-    <!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->
-    <bean id="transactionManager"
-          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource" />
     </bean>
 
 </beans>
